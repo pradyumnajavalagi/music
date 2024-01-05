@@ -1,0 +1,75 @@
+1) VHDL code for Full adder:
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entityfull_adder is
+ Port ( a : in std_logic;
+ b : in std_logic;
+ c : in std_logic;
+ sum : out std_logic;
+ carry : out std_logic);
+end full_adder;
+architecture behavioural of full_adder is
+begin
+sum<= a xor b xor c;
+carry<=((a xor b )and c) or (a and b) ;
+end behavioural;
+
+
+2) VHDL code for Half Adder:
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity half_adder is
+ Port ( a : in std_logic;
+ b : in std_logic;
+ sum : out std_logic;
+ carry : out std_logic);
+end half_adder;
+architecture behavioural of half_adder is
+begin
+sum<=a xor b;
+carry<= a and b;
+end behavioural;
+
+
+3)VHDL code for Full Subtractor:
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity full_subtractor is
+ port(
+ a : in STD_LOGIC;
+ b : in STD_LOGIC;
+ c : in STD_LOGIC;
+Digital Logic Design Lab REVA University
+School of Computing Science and Engineering Page 13
+ difference : out STD_LOGIC;
+ borrow : out STD_LOGIC);
+end full_subtractor;
+architecture behavioural of full_subtractor is
+begin
+ difference <= a xor b xor c;
+ borrow <= ((not a) and b) or ((not(a xor b)) and c));
+end behavioural;
+
+
+4)VHDL code for Half Subtractor:
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity half_subtractor is
+ port( a : in STD_LOGIC;
+ b : in STD_LOGIC;
+ diff : out STD_LOGIC;
+ borrow : out STD_LOGIC);
+end half_subtractor;
+architecture behavioural of half_subtractor is
+begin
+ diff <= a xor b;
+ borrow <= (not a) and b;
+end behavioural;

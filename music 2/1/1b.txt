@@ -1,0 +1,102 @@
+VHDL code for NOT gate Using NAND gates:
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+entity notgate is
+port( A: in std_logic;
+ Y: out std_logic
+);
+end notgate;
+architecture Behavioral of notgate is
+begin
+Y<= A nand A;
+Digital Logic Design Lab REVA University
+School of Computing Science and Engineering Page 6
+End Behavioral;
+
+
+VHDL code for ORgate Using NAND gates:
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+entity orgate is
+port( A: in std_logic;
+B: in std_logic;
+Y: out std_logic
+);
+end orgate;
+architecture Behavioral of orgate is
+begin
+Y<= (A nand A) nand (B nand B);
+End Behavioral;
+
+
+VHDL code for AND gate Using NAND gates:
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+entity andgate is
+port( A: in std_logic;
+B: in std_logic;
+Y: out std_logic
+);
+end andgate;
+architecture Behavioral of andgate is
+begin
+Y<= (A nand B) nand (A nand B);
+End Behavioral;
+Digital Logic Design Lab REVA University
+School of Computing Science and Engineering Page 7
+
+
+VHDL code for NOT gate Using NOR gates:
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+entity notgate is
+port( A: in std_logic;
+Y: out std_logic
+);
+end notgate;
+architecture Behavioral of notgate is
+begin
+Y<= A nor A;
+End Behavioral;
+VHDL code for AND gate Using NAND gates:
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+entity orgate is
+port( A: in std_logic;
+B: in std_logic;
+Y: out std_logic
+);
+end orgate;
+architecture Behavioral of orgate is
+begin
+Y<= (A nor A) nor (B nor B);
+End Behavioral;
+
+
+VHDL code for OR gate Using NAND gates:
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
+entity andgate is
+port( A: in std_logic;
+B: in std_logic;
+Y: out std_logic
+);
+Digital Logic Design Lab REVA University
+School of Computing Science and Engineering Page 8
+end andgate;
+architecture Behavioral of andgate is
+begin
+Y<= (A nor B) nor (A nor B);
+End Behavioral;

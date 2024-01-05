@@ -1,0 +1,27 @@
+VHDL code for 8:1 MUX
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity mux8to1 is
+Port ( sel : in STD_LOGIC_vector(2 downto 0);
+din : in STD_LOGIC_vector(0 downto 7);
+dout : out STD_LOGIC);
+end mux8to1;
+architecture Behavioral of mux8to1 is
+begin
+process(sel,din(7), din(6), din(5), din(4), din(3), din(2), din(1), din(0))
+begin
+case sel is
+when "000"=>dout<=din(7);
+when "001"=>dout <= din(6);
+when "010"=>dout <= din(5);
+when "011"=>dout <= din(4);
+when "100"=>dout <= din(3);
+when "101"=>dout <= din(2);
+when "110"=>dout <= din(1);
+when "111"=>dout <= din(0);
+when others=>null;
+end case;
+end process;
+end Behavioral;

@@ -1,0 +1,26 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+entity Modulo8Counter is
+ Port ( clk : in STD_LOGIC;
+ reset : in STD_LOGIC;
+ count : out STD_LOGIC_VECTOR(2 downto 0));
+end Modulo8Counter;
+architecture Behavioral of Modulo8Counter is
+ signal counter : STD_LOGIC_VECTOR(2 downto 0) := "000";
+begin
+ process(clk, reset)
+ begin
+ if reset = '1' then
+ counter <= "000"; -- Reset the counter to 0
+ elsif rising_edge(clk) then
+ if counter = "111" then
+ counter <= "000"; -- Wrap around when it reaches 7
+ else
+ counter <= counter + 1; -- Increment the counter
+ end if;
+ end if;
+ end process;
+ count <= counter;
+end Behavioral;
